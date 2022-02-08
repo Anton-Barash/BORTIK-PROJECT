@@ -1,0 +1,59 @@
+{
+    "name": "bortik-project",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@emotion/react": "^11.6.0",
+        "@emotion/styled": "^11.6.0",
+        "@reduxjs/toolkit": "^1.6.2",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.5.0",
+        "@testing-library/user-event": "^7.2.1",
+        "axios": "^0.24.0",
+        "bootstrap": "^5.1.3",
+        "formik": "^2.2.9",
+        "i18next": "^21.6.0",
+        "i18next-browser-languagedetector": "^6.1.2",
+        "react": "^17.0.2",
+        "react-bootstrap": "^2.0.2",
+        "react-dom": "^17.0.2",
+        "react-i18next": "^11.15.0",
+        "react-redux": "^7.2.6",
+        "react-router-dom": "^6.0.2",
+        "react-scripts": "4.0.3",
+        "yup": "^0.32.11"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "copy-build-folder": "copyfiles -V build/** ../bortik-project-demo",
+        "copy-server-folder": "copyfiles -V -e \"**/node_modules/**\" -e \"**/components/**\" -e \"**/db/**\" -f server/** ../bortik-project-demo",
+        "copy-components-folder": "copyfiles -V -u 1 server/components/** ../bortik-project-demo",
+        "copy-db-folder": "copyfiles -V -u 1 server/db/** ../bortik-project-demo",
+        "publish-to-heroku": "cd ../bortik-project-demo && git add -A && git commit -am \"publish to Heroku demo\" && git push origin main",
+        "deploy": "react-scripts build && npm run copy-build-folder && npm run copy-server-folder && npm run copy-components-folder && npm run copy-db-folder && npm run publish-to-heroku",
+        "copy-build-folder-prod": "copyfiles -V build/** ../bortik-project-prod",
+        "copy-server-folder-prod": "copyfiles -V -e \"**/node_modules/**\" -e \"**/components/**\" -e \"**/db/**\" -f server/** ../bortik-project-prod",
+        "copy-components-folder-prod": "copyfiles -V -u 1 server/components/** ../bortik-project-prod",
+        "copy-db-folder-prod": "copyfiles -V -u 1 server/db/** ../bortik-project-prod",
+        "publish-to-heroku-prod": "cd ../bortik-project-prod && git add . && git commit -am \"publish to Heroku prod\" && git push heroku main",
+        "deploy-prod": "react-scripts build && npm run copy-build-folder-prod && npm run copy-server-folder-prod && npm run copy-components-folder-prod && npm run copy-db-folder-prod && npm run publish-to-heroku-prod"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
